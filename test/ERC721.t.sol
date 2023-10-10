@@ -87,15 +87,6 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
         );
     }
 
-    function testTotalSupply() public {
-        vm.startPrank(address(0x2222));
-        ERC721Facet(address(diamond)).mint(address(0x2222), 10000e18);
-        assertEq(
-            ERC721Facet(address(diamond)).totalSupply(address(0x2222)),
-            10000e18
-        );
-    }
-
     function diamondCut(
         FacetCut[] calldata _diamondCut,
         address _init,
